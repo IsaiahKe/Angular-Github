@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/core/model/user';
 import { GithubService } from 'src/app/core/service/github.service';
 
 @Component({

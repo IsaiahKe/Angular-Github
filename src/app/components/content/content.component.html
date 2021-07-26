@@ -1,11 +1,32 @@
-<div fxLayout="row wrap" fxLayoutGap="10px" *ngFor='let repo of repos'>
-    <!-- <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let repo of repos"> -->
-       <ul>
-    <mat-card class="repo">
- {{repo.name}}
-    </mat-card>
-</ul> 
-    <!-- </div> -->
+<div class="me">
+    <div fxLayout="row wrap" fxLayoutGap="10px" *ngFor='let repo of repos'>
+        <ul>
+            <mat-card class="repo" appDirective>
+                <mat-card-header>
+                    <mat-card-title class="head">
+                        <h3>{{repo.name}}</h3>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="holder">
+                        {{repo.description}}
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p><a href="{{repo.homepage}}">View Project</a></p>
+                    <p><a href="{{repo.clone_url}}"><button class="btn" mat-raised-button color="basic">clone
+                                link</button></a></p>
+                    {{repo.created_at}}
+                    {{repo.updated_at}}
+                </mat-card-actions>
+                <mat-card-footer class="head">
+
+                    <p><a href="{{repo.html_url}}"><button class="btn" mat-raised-button color='primary'>View
+                                Github</button></a></p>
+                </mat-card-footer>
+            </mat-card>
+        </ul>
 
 
+    </div>
 </div>
