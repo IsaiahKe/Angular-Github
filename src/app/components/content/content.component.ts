@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/core/model/user';
+import { GithubService } from 'src/app/core/service/github.service';
 
 @Component({
   selector: 'app-content',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-
-  constructor() { }
+repos:any;
+  constructor(private repoService:GithubService) {
+    this.repoService.getRepos().subscribe(response=>{console.log(response);
+      this.repos=response;});
+   }
 
   ngOnInit(): void {
   }

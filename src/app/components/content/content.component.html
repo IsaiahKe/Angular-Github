@@ -1,3 +1,11 @@
-<div fxLayout="row wrap" fxLayoutGap="10px">
+<div fxLayout="row wrap" fxLayoutGap="10px" *ngFor='let repo of repos'>
+    <!-- <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let repo of repos"> -->
+       <ul>
+    <mat-card class="repo">
+ {{repo.name}}
+    </mat-card>
+</ul> 
+    <!-- </div> -->
+
 
 </div>
