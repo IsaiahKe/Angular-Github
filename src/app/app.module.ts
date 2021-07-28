@@ -1,29 +1,23 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/header/header.component';
-import { Material } from 'src/app/material';
-import { SearchComponent } from './components/search/search.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { Material } from 'src/material';
+import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ContentComponent } from './components/content/content.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { GithubService } from './core/service/github.service';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { UserComponent } from './user/user.component';
-import { ServiceService } from './core/service/service.service';
+import { GitService } from './services/git.service';
+import { UserComponent } from './components/user/user.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SearchComponent,
-    ProfileComponent,
-    ContentComponent,
-    NotFoundComponent,
-    UserComponent
+    HomeComponent,
+    UserComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +25,10 @@ import { ServiceService } from './core/service/service.service';
     NoopAnimationsModule,
     Material,
     HttpClientModule,
-    FlexLayoutModule,
-    
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [GithubService,ServiceService],
+  providers: [GitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
