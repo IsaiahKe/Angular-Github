@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
     
    }
 getUser(val:any){
-  this.ngOnDestroy()
+  console.log(val.name);
   this.gitService.searchUser(val.name);
   this.repoData=this.gitService.userRepoData
 }
