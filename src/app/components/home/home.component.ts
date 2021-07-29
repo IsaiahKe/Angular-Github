@@ -37,6 +37,7 @@ repoData:Repo[]=[];
   ngOnDestroy(): void {
     console.log("Destroying")
    this.gitService.repoData=[];
+   this.user=new User('','',0,0,0,'','');
   }
 
 }

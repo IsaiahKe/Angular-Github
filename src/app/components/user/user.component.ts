@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.user=new User('','',0,0,0,'','');
+    
    }
 getUser(val:any){
   console.log(val.name);
@@ -31,6 +31,7 @@ getUser(val:any){
 
   ngOnDestroy(): void {
     this.gitService.userRepoData = [];
+    this.user=new User('','',0,0,0,'','');
   }
 
 }
