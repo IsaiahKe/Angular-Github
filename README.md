@@ -4,7 +4,8 @@ This is an angular project that uses GitHub APi to get the user information and 
 # Technology used
     Angular
     Material
-    Netifly
+    Netifly 
+    
 # License
 [MIT](LICENSE)
 
