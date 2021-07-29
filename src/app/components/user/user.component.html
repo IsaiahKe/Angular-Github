@@ -4,8 +4,7 @@
 <mat-toolbar class="toolbar">
     <form #form='ngForm' (ngSubmit)='getUser(form.value)'>
         <label for="name"></label>
-        <input type='text' Placeholder="Enter User name to search" ngModel name="name" class="username" id='name'
-            autofocus='true' (keyup)='getUser(form.value)'>
+        <input type='text' Placeholder="Enter User name to search" ngModel name="name" class="username" id='name' autofocus='true'>
     </form>
 </mat-toolbar>
 <mat-toolbar>
@@ -35,7 +34,7 @@
             </mat-card-header>
             <mat-card-content *ngIf='!user.bio'>No BIO data</mat-card-content>
             <mat-card-content *ngIf='user.bio'>{{user.bio}}</mat-card-content>
-
+            
         </mat-card>
         <mat-card class="bio">
             <mat-card-header class="head">
@@ -51,7 +50,7 @@
                 Date created:{{user.created_at}} <br>
                 Availabe Repositories: {{user.public_repos}}
             </mat-card-content>
-
+           
         </mat-card>
     </div>
 </mat-card>
