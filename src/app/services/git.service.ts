@@ -16,6 +16,8 @@ export class GitService {
   userRepoData:any=[];
   newUserData:any=[];
   newSearchUserData:any=[];
+  path='https://api.github.com/users/Isaiahke';
+  common= 'https://api.github.com/users/'
   
   constructor(private http:HttpClient) {
     this.user= new User('','',0,0,0,'','');
@@ -23,7 +25,7 @@ export class GitService {
    }
   getProfile(){
     let promise= new Promise<void>((resolve,reject)=>{
-      this.http.get<IUser>(`${environment.path}`).toPromise().then(response=>{
+      this.http.get<IUser>(this.path).toPromise().then(response=>{
         this.user.bio=response.bio;
         this.user.avatar_url=response.avatar_url;
         this.user.created_at=response.created_at;
@@ -36,7 +38,7 @@ export class GitService {
       },error=>{
         reject(error)
       })
-      this.http.get<any>(`${environment.path}`+'/repos').toPromise().then(response=>{
+      this.http.get<any>(this.path+'/repos').toPromise().then(response=>{
         for(let i=0;i<response.length;i++){
           this.newUserData= new Repo(this.repo.name=response[i].name,this.repo.html_url=response[i].html_url,this.repo.url=response[i].url,this.repo.language=response[i].language,this.repo.created_at=response[i].created_at,this.repo.description=response[i].description,this.repo.updated_at=response[i].updated_at,this.repo.clone_url=response[i].clone_url)
           this.repoData.push(this.newUserData)
@@ -52,7 +54,7 @@ export class GitService {
     searchUser(username:string){
 
     let promise= new Promise<void>((resolve,reject)=>{
-      this.http.get<IUser>(`${environment.common}`+username).toPromise().then(response=>{
+      this.http.get<IUser>(this.common+username).toPromise().then(response=>{
         this.user.bio=response.bio;
         this.user.avatar_url=response.avatar_url;
         this.user.created_at=response.created_at;
@@ -66,7 +68,7 @@ export class GitService {
         reject(error)
       })
       
-      this.http.get<any>(`${environment.common}`+username+'/repos').toPromise().then(response=>{
+      this.http.get<any>(this.common+username+'/repos').toPromise().then(response=>{
         this.newSearchUserData=[];
         for(let i=0;i<response.length;i++){
           this.newSearchUserData= new Repo(this.repo.name=response[i].name,this.repo.html_url=response[i].html_url,this.repo.url=response[i].url,this.repo.language=response[i].language,this.repo.created_at=response[i].created_at,this.repo.description=response[i].description,this.repo.updated_at=response[i].updated_at,this.repo.clone_url=response[i].clone_url)

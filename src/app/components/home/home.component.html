@@ -18,7 +18,7 @@
         </div>
 
         <mat-card class="bio">
-            <mat-card-header>
+            <mat-card-header class="head">
                 <mat-card-title>
                     <h1>Bio</h1>
                 </mat-card-title>
@@ -26,7 +26,7 @@
             <mat-card-content>{{user.bio}}</mat-card-content>
         </mat-card>
         <mat-card class="bio">
-            <mat-card-header>
+            <mat-card-header class="head">
                 <mat-card-title>
                     <h1>
                         About
@@ -48,7 +48,7 @@
 </mat-card>
 <div fxLayout="row wrap" fxLayoutGap="10px" class="prof">
     <mat-card class="content" *ngFor='let repo of repoData;'>
-        <mat-card-header>
+        <mat-card-header class="head">
             <mat-card-title>
                 {{repo.name}}
             </mat-card-title>
